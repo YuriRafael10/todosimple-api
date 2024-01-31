@@ -28,7 +28,9 @@ import jakarta.validation.Valid;
 public class TaskController {
     @Autowired
     private TaskService taskService;
+    @Autowired
     private UserService userService;
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Task> findById(@PathVariable Long id) {
