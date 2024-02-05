@@ -18,6 +18,7 @@ public class UserService {
     private UserRepository userRepository;
 
     public User findById(Long id) {
+        @SuppressWarnings("null")
         Optional<User> user = this.userRepository.findById(id);
 
         return user.orElseThrow(
@@ -38,6 +39,7 @@ public class UserService {
         return this.userRepository.save(newObj);
     }
 
+    @SuppressWarnings("null")
     public void delete(Long id) {
         findById(id);
         try {

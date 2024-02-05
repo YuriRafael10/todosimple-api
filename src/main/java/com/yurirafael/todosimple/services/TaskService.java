@@ -22,6 +22,7 @@ public class TaskService {
     private UserService userService;
 
     public Task findById(Long id) {
+        @SuppressWarnings("null")
         Optional<Task> task = this.taskRepository.findById(id);
         return task.orElseThrow(
                 () -> new ObjectNotFoundExcpetion("Tarefa não encontrada! Id: " + id + ", Tipo: " + Task.class.getName()));
@@ -48,6 +49,7 @@ public class TaskService {
         return this.taskRepository.save(newObj);
     }
 
+    @SuppressWarnings("null")
     public void delete(Long id){
         findById(id);
         try {

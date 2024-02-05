@@ -1,13 +1,10 @@
 package com.yurirafael.todosimple.exceptions;
 
-import java.io.IOException;
 import java.nio.file.AccessDeniedException;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -23,9 +20,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import com.yurirafael.todosimple.services.exceptions.DataBindingViolationExcpetion;
 import com.yurirafael.todosimple.services.exceptions.ObjectNotFoundExcpetion;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 
