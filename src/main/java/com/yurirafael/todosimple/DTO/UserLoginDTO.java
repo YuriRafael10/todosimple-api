@@ -1,5 +1,6 @@
 package com.yurirafael.todosimple.DTO;
 
+// Data Transfer Object
 public class UserLoginDTO {
     private String username;
     private String password;
@@ -8,7 +9,6 @@ public class UserLoginDTO {
         // Construtor padrão necessário para a desserialização do Json
     }
 
-    // Getters e setters
     public String getUsername() {
         return username;
     }
