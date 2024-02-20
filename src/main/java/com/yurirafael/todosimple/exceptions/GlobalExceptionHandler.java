@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import com.yurirafael.todosimple.services.exceptions.AuthorizationException;
 import com.yurirafael.todosimple.services.exceptions.DataBindingViolationExcpetion;
 import com.yurirafael.todosimple.services.exceptions.ObjectNotFoundExcpetion;
 
@@ -125,6 +126,22 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler imple
                 accessDeniedException,
                 HttpStatus.FORBIDDEN,
                 request);
+    }
+
+    @ExceptionHandler(AuthenticationException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public ResponseEntity<Object> handleAuthenticationException(
+            AuthenticationException authenticationException, WebRequest request) {
+        log.error("Authentication error ", authenticationException);
+        return buildErrorResponse(authenticationException, HttpStatus.UNAUTHORIZED, request);
+    }
+
+    @ExceptionHandler(AuthorizationException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public ResponseEntity<Object> handleAuthorizationException(
+            AuthorizationException authorizationException, WebRequest request) {
+        log.error("Authentication error", authorizationException);
+        return buildErrorResponse(authorizationException, HttpStatus.FORBIDDEN, request);
     }
 
     private ResponseEntity<Object> buildErrorResponse(
