@@ -1,4 +1,4 @@
-package com.yurirafael.todosimple.DTO;
+package com.yurirafael.todosimple.models.dto;
 
 // Data Transfer Object
 public class UserLoginDTO {

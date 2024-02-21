@@ -10,8 +10,8 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.yurirafael.todosimple.DTO.UserLoginDTO;
 import com.yurirafael.todosimple.exceptions.GlobalExceptionHandler;
+import com.yurirafael.todosimple.models.dto.UserLoginDTO;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
