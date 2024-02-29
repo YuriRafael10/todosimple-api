@@ -10,7 +10,6 @@ public class AuthorizationException extends AccessDeniedException {
 
     public AuthorizationException(String file) {
         super(file);
-        // TODO Auto-generated constructor stub
     }
 
 }
