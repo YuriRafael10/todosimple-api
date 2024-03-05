@@ -3,7 +3,6 @@ package com.yurirafael.todosimple.security;
 import java.io.IOException;
 import java.util.Objects;
 
-import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,7 +14,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-@Order()
+
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
     private JWTUtil jwtUtil;
@@ -37,8 +36,9 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
             UsernamePasswordAuthenticationToken auth = getAuthentication(token);
             if (Objects.nonNull(auth))
                 SecurityContextHolder.getContext().setAuthentication(auth);
-            filterChain.doFilter(request, response);
+            
         }
+        filterChain.doFilter(request, response);
     }
 
     private UsernamePasswordAuthenticationToken getAuthentication(String token) {
